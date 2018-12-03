@@ -1,0 +1,39 @@
+---- Windows 10 -----------------------------------------------------------------------
+
+http://windows.php.net/download/
+php-7.2.12-Win32-VC15-x64.zip
+Location: C:/Users/pc/AppData/Local/php7
+
+
+$ mv php.ini-development php.ini
+
+
+# php.ini
+Short_open_tag= off
+~
+extension_dir = "C:/Users/pc/AppData/Local/php7/ext"
+~
+extension=mysqli
+~
+extension=pdo_mysql
+~
+error_reporting = E_ALL & ~E_NOTICE
+
+
+# pdo.php
+<?php
+$dbHost = "localhost";
+$dbUser = "root";
+$dbPassword = "*****";
+$dbName = "mysql";
+
+try {
+    $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (Exception $e) {
+    echo($e->getMessage());
+}
+
+$pdo = null;
+
+---------------------------------------------------------------------------------------

@@ -1,0 +1,38 @@
+---- Windows 10 -----------------------------------------------------------------------
+
+https://www.apachelounge.com/download/
+httpd-2.4.37-win64-VC15.zip
+Location: C:/Users/pc/AppData/Local/Apache24
+
+
+# /conf/http.conf
+ServerRoot "C:/Users/pc/AppData/Local/Apache24"
+~
+Listen 80
+~
+ServerAdmin ip127001@outlook.com
+~
+ServerName localhost:80
+
+
+# Command Prompt(Admin)
+C:\Users\pc\AppData\Local\Apache24\bin>httpd.exe -k install
+C:\Users\pc\AppData\Local\Apache24\bin>httpd.exe -k start
+
+
+#services.msc
+
+
+# /conf/httpd.conf
+DirectoryIndex index.html index.php
+~
+PHPIniDir "C:/Users/pc/AppData/Local/php7"
+LoadModule php7_module "C:/Users/pc/AppData/Local/php7/php7apache2_4.dll"
+AddType application/x-httpd-php .html .htm .php
+
+
+# Command Prompt
+C:\Users\pc\AppData\Local\Apache24\bin>httpd.exe -t
+C:\Users\pc\AppData\Local\Apache24\bin>httpd.exe -k restart
+
+---------------------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+---- Windows 10 -----------------------------------------------------------------------
+
+http://dev.mysql.com/downloads/mysql/
+MySQL Installer 8.0.13(mysql-installer-community-8.0.13.0.msi)
+Location: C:/Users/pc/AppData/Local/MySQL
+
+
+#Setup Type
+Server Only
+
+
+# Rebooting
+
+---------------------------------------------------------------------------------------
