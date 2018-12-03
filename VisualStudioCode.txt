@@ -1,0 +1,5 @@
+{
+    "editor.fontSize": 13,
+    "python.pythonPath": "C:/.../python.exe",
+    "php.validate.executablePath": "C:/.../php.exe",
+}

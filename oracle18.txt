@@ -1,0 +1,57 @@
+---- Windows 10 -----------------------------------------------------------------------
+
+1. Create and configure a single instance database.
+
+2. Desktop Class
+
+3. Oracle Home User
+Create New Windows User
+- User Name: root
+- Password:
+
+4. Typical Installation
+Gloabl database name: orcl
+[v] Create as Container database
+-- Pluggable database name: orclpdb
+
+5. Finish
+https://localhost:5500/em
+
+6. Test
+Enter user-name: sys as sysdba
+Enter password:
+...
+
+or
+
+Enter user-name: / AS SYSDBA
+...
+
+or
+
+sqlplus /nolog
+SQL> connect / as sysdba;
+Connected.
+
+SQL> select * from v$version;
+SQL> select name from v$database;
+NAME
+----------
+ORCL
+
+SQL> select table_name from user_tables;
+SQL> select table_name from user_tables where rownum <= 10;
+
+SQL> exit
+
+
+7. Services (Local)
+
+OracleJobSchedulerORCL                  Disabled  | Stopped
+OracleOraDB18Home1MTSRecoveryService    Automatic | Stopped
+OracleOraDB18Home1TNSListener           Automatic | Running
+OracleRemExecServiceV2                  Disabled  | Running
+OracleServiceORCL                       Automatic | Running
+OracleVssWriterORCL                     Automatic | Running
+
+---------------------------------------------------------------------------------------

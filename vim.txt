@@ -1,0 +1,16 @@
+---- .vimrc ---------------------------------------------------------------------------
+
+syntax on
+set background=dark
+set hlsearch
+set nu
+set ts=4
+set sts=4
+set shiftwidth=4
+set showmatch
+set softtabstop=4
+set tabstop=4
+set expandtab
+set ignorecase
+
+---------------------------------------------------------------------------------------

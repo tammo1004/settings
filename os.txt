@@ -1,0 +1,19 @@
+---- Windows 10 -----------------------------------------------------------------------
+
+949 -> 437
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont]
+[HKEY_CURRENT_USER\Console]
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage - ACP:1252, OEMCP:437
+
+
+about:flags
+[v] Hide my local IP address over WebRTC connections
+
+
+Font: "regedit"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts]
+Value name: Gulim & GulimChe & Dotum & DotumChe
+Value data: gulim.ttc -> malgun.ttf
+
+---------------------------------------------------------------------------------------
