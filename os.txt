@@ -18,6 +18,7 @@ Value data: gulim.ttc -> malgun.ttf
 
 ---------------------------------------------------------------------------------------
 
+
 ---- Ubuntu ---------------------------------------------------------------------------
 
 $ sudo passwd root
@@ -68,5 +69,28 @@ $ ls -l /var/crash/
 $ sudo rm /var/crash/*
 $ sudo vi /etc/default/apport
 enabled=0
+
+
+"Korean(iBus): 18.04 LTS (Bionic Beaver) Daily Build
+1. Settings > Region & Language > Manage Installed Languages > [Install] > ibus-hangul...
+
+2. Restart or Log out
+
+3. Region & Language > Input Sources > "+" > Korean(Hangul) > "Add" English (US) > "-"
+
+4. Korean(Hangul) > Setup > iBusHangul Setup
+ > Hangul toggle key...
+   Hangul
+   Shift+space
+ > Hanja...
+   Hangul_Hanja
+   F9
+
+"Korean(iBus): 17.10
+1. Software Center > GNOME Tweaks > [ Install ]
+
+2. GNOME Tweaks > Keyboard & Mouse > [ Additional Layout Options ]...
+Korean Hangul/Hanja keys...
+[v] Hardware Hangul/Hanja Keys
 
 ---------------------------------------------------------------------------------------
