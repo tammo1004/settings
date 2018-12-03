@@ -1,0 +1,15 @@
+---------------------------------------------------------------------------------------
+
+$ git clone http://github.com/user_name/repository_name
+$ cd repository_name
+$ git config --global user.name "user_name"
+$ git config --global user.email "user_email"
+
+$ git add *
+$ git rm file_name
+$ git old_file new_file
+
+$ git commit -m "1st"
+$ git push
+
+---------------------------------------------------------------------------------------
