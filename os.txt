@@ -17,3 +17,57 @@ Value name: Gulim & GulimChe & Dotum & DotumChe
 Value data: gulim.ttc -> malgun.ttf
 
 ---------------------------------------------------------------------------------------
+
+---- Ubuntu ---------------------------------------------------------------------------
+
+$ sudo passwd root
+
+
+"Update Server
+$ sudo vi /etc/apt/sources.list
+
+
+"ttc
+$ sudo cp gulim.ttc /usr/local/share/fonts/
+$ sudo cp c* /usr/share/fonts/truetype/
+$ sudo cp g* /usr/share/fonts/opentype/
+$ fc-cache -f -v
+
+/usr/share/fonts/
+/home/username/.local/share/fonts
+/home/username/.fonts
+/var/cache/fontconfig
+/home/username/.cache/fontconfig
+/home/username/.fontconfig
+
+
+"apt-get
+$ apt-get update
+$ apt-get upgrade
+
+$ apt-cache search [package name]
+$ apt-cache show [package name]
+
+$ apt-get install [package name]
+$ apt-get --reinstall install [package name]
+
+$ apt-get remove [package name]
+$ sudo apt-get purge [package name]
+
+
+"Theme
+$ sudo apt install gnome-tweak-tool
+Run: tweak
+
+
+"Error:
+System program problem detected
+Do you want to report the problem now?
+"
+$ ls -l /var/crash/
+$ sudo rm /var/crash/*
+$ sudo vi /etc/default/apport
+enabled=0
+
+
+---------------------------------------------------------------------------------------
