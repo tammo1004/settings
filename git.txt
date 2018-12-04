@@ -9,7 +9,9 @@ $ git add *
 $ git rm file_name
 $ git old_file new_file
 
+$ git rm -r --cached folder_name
+
 $ git commit -m "1st"
-$ git push
+$ git push origin master
 
 ---------------------------------------------------------------------------------------
