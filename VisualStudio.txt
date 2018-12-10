@@ -1,0 +1,11 @@
+Terminal:
+
+Menu... Tools > External Tools > Add
+- Title: Terminal (or name it yourself)
+- Command=cmd.exe
+  Or
+  Command=powershell.exe
+- Arguments= /k
+- Initial Directory=$(ProjectDir)
+
+Tools > Terminal

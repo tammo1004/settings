@@ -1,0 +1,359 @@
+1. > mkdir djangoproject
+2. > cd djangoproject
+3. > python -m venv env
+4. > env\Scripts\activate
+5. (env) > python -m pip install --upgrade pip
+6. (env) > python -m pip install django
+7. (env) > django-admin startproject project .
+
+    ---- project/settings.py ----
+    ALLOWED_HOSTS = ['127.0.0.1', '.xxx.com']
+    ...
+    TEMPLATES = [
+        {
+            ...
+            'APP_DIRS': True,
+        },
+    ]
+    ...
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+    ...
+    # LANGUAGE_CODE = 'ko'
+    LANGUAGE_CODE = 'en-us'
+    TIME_ZONE = 'Asia/Seoul'
+    ...
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    --------------------------------
+
+8. (env) > python manage.py runserver [8000]
+
+
+
+#### TEMPLATE ####
+
+1. (env) > python manage.py startapp app
+
+    ---- app/apps.py ----
+    class AppConfig(AppConfig):
+        name = 'app'
+    --------------------------------
+
+    ---- project/settings.py ----
+    NSTALLED_APPS = [
+        ...
+        'app',
+    ]
+    --------------------------------
+
+    ---- project/urls.py ----
+    from django.contrib import admin
+    from django.urls import path
+    import app.views
+
+    # from django.conf.urls import include, url
+    # import app.views
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', app.views.index, name='index'),
+        path('home/', app.views.index, name='home'),
+        path('about/', app.views.about, name='about'),
+
+        # url(r'^admin/', include(admin.site.urls)),
+        # url(r'^$', app.views.index, name='index'),
+        # url(r'^home$', app.views.index, name='home'),
+        # url(r'^about$', app.views.about, name='about'),
+    ]
+    --------------------------------
+
+    ---- app/templates/app/template.html ----
+    <!DOCTYPE html>
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta charset="utf-8" />
+    <title> Good morning!!! </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+    </head>
+
+    <body>
+
+    <div class="nav">
+        <a href="/">Good morning</a>
+        &nbsp;|&nbsp; <a href="{% url 'index' %}">Home</a>
+        &nbsp;|&nbsp; <a href="{% url 'about' %}">About</a>
+    </div>
+
+    <div class="title">
+        {% block title %}
+        {% endblock %}
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; 2018</p>
+        </footer>
+    </div>
+
+    </body>
+    </html>
+    --------------------------------
+
+    ---- app/templates/app/index.html ----
+    {% extends "app/template.html" %}
+
+    {% block title %}
+    {{ title }}
+    {% endblock %}
+
+    {% block content %}
+    {{ content }}
+    {% endblock %}
+    --------------------------------
+
+    ---- app/templates/app/about.html ----
+    {% extends "app/template.html" %}
+
+    {% block title %}
+    {{ title }}
+    {% endblock %}
+
+    {% block content %}
+    {{ content }}
+    {% endblock %}
+    --------------------------------
+
+    ---- app/static/base.css ----
+    * {
+        font-family: 'Malgun Gothic';
+        font-size: 10pt;
+    }
+
+    a:link, a:visited, a:hover, a:active {
+        color:#ffffff;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .nav {
+        background-color: #778899;
+        font-size: 11pt;
+        color: #cccccc;
+        padding: 8px 5px 8px 5px;
+    }
+
+    .title {
+        padding: 5px;
+        font-size: 12pt;
+        font-weight: bold;
+    }
+
+    .content {
+        padding: 5px;
+    }
+    --------------------------------
+
+    ---- app/views.py ----
+    from django.shortcuts import render
+    from datetime import datetime
+
+    def index(request):
+        now = datetime.now()
+
+        return render(
+            request,
+            'app/index.html',
+            {
+                'title' : 'home',
+                'content' : 'Good morning - ' + now.strftime("%A, %d %B, %Y at %X")
+            }
+        )
+
+    def about(request):
+        now = datetime.now()
+
+        return render(
+            request,
+            'app/about.html',
+            {
+                'title' : 'about',
+                'content' : 'Good morning - ' + now.strftime("%A, %d %B, %Y at %X")
+            }
+        )
+    --------------------------------
+
+
+
+#### MESSENGER ####
+
+    ---- app/models.py ----
+    from django.db import models
+    from django.utils import timezone
+
+    class messenger(models.Model):
+        message = models.CharField(max_length=150)
+        log_date = models.DateTimeField("loged")
+
+        def __str__(self):
+            date = timezone.localtime(self.log_date)
+            return f"'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
+    --------------------------------
+
+1. python manage.py makemigrations
+2. python manage.py migrate
+
+    ---- app/templates/app/list.html ----
+    {% extends "app/template.html" %}
+
+    {% block title %}
+        message list
+    {% endblock %}
+
+    {% block content %}
+        <p>No messages. Use the <a href="{% url 'forms' %}">message form</a>.</p>
+    {% endblock %}
+    --------------------------------
+
+    ---- app/templates/app/forms.html ----
+    {% extends "app/template.html" %}
+
+    {% block title %}
+        message
+    {% endblock %}
+
+    {% block content %}
+        <form method="POST" class="message_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Send</button>
+        </form>
+    {% endblock %}
+    --------------------------------
+
+    ---- app/static/base.css ----
+    input[name=message] {
+        width: 80%;
+    }
+    --------------------------------
+
+    ---- app/templates/app/template.html ----
+    &nbsp;|&nbsp; <a href="{% url 'message' %}">Message</a>
+    --------------------------------
+
+    ---- project/urls.py ----
+    path('message/', app.views.list, name='message'),
+    path('forms/', app.views.forms, name='forms'),
+    --------------------------------
+
+    ---- app/views.py ----
+    def list(request):
+        return render(request, 'app/list.html')
+
+    def forms(request):
+        return render(request, 'app/forms.html')
+    --------------------------------
+
+3. python manage.py runserver
+
+    ---- app/forms.py ----
+    from django import forms
+    from app.models import messenger
+
+    class messenger_form(forms.ModelForm):
+        class Meta:
+            model = messenger
+            fields = ("message",)
+    --------------------------------
+
+    ---- app/views.py ----
+    from django.shortcuts import redirect
+    from app.forms import messenger_form
+    from app.models import messenger
+
+    def forms(request):
+        form = messenger_form(request.POST or None)
+
+        if request.method == "POST":
+            if form.is_valid():
+                message = form.save(commit=False)
+                message.log_date = datetime.now()
+                message.save()
+                return redirect("message")
+        else:
+            return render(request, 'app/forms.html', {"form": form})
+    --------------------------------
+
+    ---- app/templates/list.html ----
+    {% extends "app/template.html" %}
+
+    {% block title %}
+        message list &nbsp;|&nbsp; <a href="{% url 'forms' %}">message form</a>
+    {% endblock %}
+
+    {% block content %}
+    {% if message_list %}
+    <table class="message">
+        <thead>
+        <tr>
+            <th>date</th>
+            <th>time</th>
+            <th>message</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for message in message_list %}
+        <tr>
+            <td>{{ message.log_date | date:'d M Y' }}</td>
+            <td>{{ message.log_date | date:'H:i:s' }}</td>
+            <td>{{ message.message }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No messages.</p>
+    {% endif %}
+    {% endblock %}
+    --------------------------------
+
+    ---- app/static/base.css ----
+    .message th,td {
+        text-align: left;
+        padding-right: 15px;
+    }
+    --------------------------------
+
+    ---- app/views.py ----
+    from django.views.generic import ListView
+
+    class list(ListView):
+        model = messenger
+
+        def get_data(self, **args):
+            text = super(list, self).get_data(**args)
+            return text
+    --------------------------------
+
+    ---- app/urls.py ----
+    from app.models import messenger
+
+    list_view = app.views.list.as_view(
+        queryset = messenger.objects.order_by("-log_date")[:5],
+        context_object_name="message_list",
+        template_name="app/list.html",
+    )
+
+    urlpatterns = [
+        ...
+        path('message/',list_view, name='message'),
+    ]
+    --------------------------------
