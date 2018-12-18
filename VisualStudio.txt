@@ -9,3 +9,6 @@ Menu... Tools > External Tools > Add
 - Initial Directory=$(ProjectDir)
 
 Tools > Terminal
+
+
+> python -m pip install --upgrade django

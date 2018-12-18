@@ -1,0 +1,19 @@
+﻿---- Windows 10 -----------------------------------------------------------------------
+
+IntelliJ > Spring Initializr
+Eclipse > Spring Starter
+
+
+
+Eclipse > FIle > New > Maven Project
+> Use default Workspace location
+> Archetype: maven-archetype-webapp 1.0
+> Group Id: com.test, Arcifact Id: MavenWeb
+
+MavenWeb > Properties > Targeted Runtimes > [v] Apache Tomcat v9.0
+MavenWeb > Run as > 5. Maven Build...
+> Main > Goals: clean install, [v] Skip Tests
+Right click on Server > Add and Remove > MavenWeb > Add
+Start tomcat server > http://localhost:8080/MavenWeb/index.jsp
+
+---------------------------------------------------------------------------------------

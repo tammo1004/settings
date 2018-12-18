@@ -1,0 +1,38 @@
+﻿---- Windows 10 -----------------------------------------------------------------------
+
+#01. JDK
+
+https://jdk.java.net/
+> Ready for use: JDK 11 > openjdk-11.0.1_windows-x64_bin.zip
+
+Sytem:
+- JAVA_HOME
+- C:\Users\pc\AppData\Local\jdk-11.0.1
+
+User:
+- path
+- %JAVA_HOME%\bin
+
+> Java -version
+> javac
+
+
+
+#02. Eclipse
+
+http://www.eclipse.org/downloads/
+> Eclipse IDE for Java EE Developers
+
+
+#03. Tomcat
+
+https://tomcat.apache.org/download-90.cgi
+> Binary Distributions > Core: > zip (pgp, sha512)
+
+Servers Tab > No servers are available. Click this link to create a new server...
+> Server's Host name: localhost, Server name: Tomcat v9.0 Server at localhost
+> Name: Apache Tomcat v9.0, Tomcat installation directory: C:\Users\pc\AppData\Local\apache-tomcat-9.0.13
+
+Start > 127.0.0.1:8080
+
+---------------------------------------------------------------------------------------

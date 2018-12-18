@@ -4,7 +4,9 @@
 4. > env\Scripts\activate
 5. (env) > python -m pip install --upgrade pip
 6. (env) > python -m pip install django
+   (env) > python -m pip install --upgrade django
 7. (env) > django-admin startproject project .
+
 
     ---- project/settings.py ----
     ALLOWED_HOSTS = ['127.0.0.1', '.xxx.com']
