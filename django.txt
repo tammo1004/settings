@@ -3,9 +3,12 @@
 3. > python -m venv env
 4. > env\Scripts\activate
 5. (env) > python -m pip install --upgrade pip
-6. (env) > python -m pip install django
+6. (env) > pip install pep8
+7. (env) > pip install autopep8
+8. (env) > pip install pylint
+9. (env) > python -m pip install django
    (env) > python -m pip install --upgrade django
-7. (env) > django-admin startproject project .
+0. (env) > django-admin startproject project .
 
 
     ---- project/settings.py ----
