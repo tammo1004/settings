@@ -1,0 +1,5 @@
+SQL Server (SQLEXPRESS)              | Automatic | Start
+SQL Server Agent (SQLEXPRESS)        | Disabled  |
+SQL Server Browser                   | Disabled  |
+SQL Server CEIP service (SQLEXPRESS) | Automatic | Start
+SQL Server VSS Writer                | Automatic | Start
