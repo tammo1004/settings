@@ -2,7 +2,7 @@
 
 #01. JDK
 
-https://jdk.java.net/
+http://jdk.java.net/11/
 > Ready for use: JDK 11 > openjdk-11.0.1_windows-x64_bin.zip
 
 Sytem:
