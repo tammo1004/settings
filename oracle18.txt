@@ -1,4 +1,5 @@
 ---- Windows 10 -----------------------------------------------------------------------
+(Run as administrator)
 
 1. Create and configure a single instance database.
 
