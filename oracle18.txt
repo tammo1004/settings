@@ -54,4 +54,23 @@ OracleRemExecServiceV2                  Disabled  | Running
 OracleServiceORCL                       Automatic | Running
 OracleVssWriterORCL                     Automatic | Running
 
+
+8. kolang
+
+> SELECT 
+(SELECT VALUE FROM nls_database_parameters WHERE PARAMETER = 'NLS_LANGUAGE') || '_' ||
+(SELECT VALUE FROM nls_database_parameters WHERE PARAMETER = 'NLS_TERRITORY') || '.' ||
+(SELECT VALUE FROM nls_database_parameters WHERE PARAMETER = 'NLS_CHARACTERSET')
+FROM DUAL;
+
+(SELECTVALUEFROMNLS_DATABASE_PARAMETERSWHEREPARAMETER='NLS_LANGUAGE')||'_'||(SEL
+--------------------------------------------------------------------------------
+AMERICAN_AMERICA.AL32UTF8
+
+
+> update sys.props$ set value$='AMERICAN' where name='NLS_LANGUAGE';
+> update sys.props$ set value$='AMERICA' where name='NLS_TERRITORY';
+> update sys.props$ set value$='KO16KSC5601' where name='NLS_CHARACTERSET';
+> update sys.props$ set value$='AL16UTF16' where name='NLS_NCHAR_CHARACTERSET';
+
 ---------------------------------------------------------------------------------------
