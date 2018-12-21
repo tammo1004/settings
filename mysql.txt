@@ -11,7 +11,29 @@ Server Only
 
 # Rebooting
 
+
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+
+
+mysql-8.0.13-winx64.zip
+
+c:/.../mysql
+
+> cd mysql
+> mkdir data
+> cd bin
+> mysqld --initialize
+> mysqld --console --explicit_defaults_for_timestamp --skip-grant-tables
+> mysql -u root mysql
+mysql> update USER set authentication_string=password('*****') where user='root';
+mysql> flush privileges;
+mysql> alter user 'root'@'localhost' identified by '*****', 'root'@'localhost' password expire never;
+
+> mysqladmin -u root -p shutdown
+> mysqladmin -u root -p killall mysqld
+
+> mysqld
 ---------------------------------------------------------------------------------------
 
 ---- Ubuntu ---------------------------------------------------------------------------
