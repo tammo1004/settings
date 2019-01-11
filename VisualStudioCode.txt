@@ -23,3 +23,6 @@ path - C:\MinGW\bin
 md
 >gcc –version
 >g++ –version
+
+VSCode
+Extensions(Ctrl+Shift+X) - Code Runner
