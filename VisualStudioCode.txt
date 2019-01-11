@@ -20,13 +20,14 @@ Installation - Apply Changes
 
 path - C:\MinGW\bin
 
-md
+cmd
 >gcc –version
 >g++ –version
 
 VSCode
 Extensions(Ctrl+Shift+X) - Code Runner
 
+settings:
 "code-runner.executorMap": {
 "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
 },
