@@ -13,7 +13,7 @@ Ctrl + Shift + P
 "locale":"ko"
 
 Ctrl + Shift + x
-Korean Language Pack...
+Korean Language Pack for Visual Studio Code
 
 
 
