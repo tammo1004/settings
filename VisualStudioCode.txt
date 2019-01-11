@@ -31,3 +31,14 @@ settings:
 "code-runner.executorMap": {
 "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
 },
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "Hello" << endl;
+    return 0;
+}
+
+Ctrl+Alt+N
