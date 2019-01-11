@@ -1,0 +1,13 @@
+apache-maven-3.6.0-src.zip
+
+PATH environment: C:\Users\pc\AppData\Local\apache-maven-3.6.0\bin
+
+> mvn -v
+> mvn --version
+> mvn archetype:generate -DgroupId=com.test.app -DartifactId=mavenapp -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+> cd mavenapp
+> mvn package
+> java -cp target/mavenapp-1.0-SNAPSHOT.jar com.test.app.App
+Hello World!
+> mvn clean dependency:copy-dependencies package
+> mvn site
