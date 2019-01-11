@@ -26,3 +26,7 @@ md
 
 VSCode
 Extensions(Ctrl+Shift+X) - Code Runner
+
+"code-runner.executorMap": {
+"cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+},
