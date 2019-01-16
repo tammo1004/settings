@@ -43,14 +43,31 @@ Type2:
 Laravel development server started: <http://127.0.0.1:8000>
 
 
-
-
 >vi Apache24/conf/httpd.conf
 #DocumentRoot "${DOCROOT}/htdocs"
 #<Directory "${DOCROOT}/htdocs">
 DocumentRoot "${DOCROOT}/www/public"
 <Directory "${DOCROOT}/www/public">
 
-Error: /../vendor/autoload.php): failed to open stream: No such file or directory in ~
->cd laravel_home
->composer require facebook/graph-sdk
+mysql> ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY '*****';
+mysql> exit
+>brew services restart mysql
+
+mysql> CREATE DATABASE test;
+mysql> use test;
+mysql> FLUSH PRIVILEGES;
+mysql> CREATE TABLE messenger (
+idx INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,	
+title VARCHAR(255),
+in_date DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+mysql> INSERT INTO messenger (title) VALUES('Hello Laravel!!!');
+mysql> exit
+
+
+# config/database.php
+            'database' => env('DB_DATABASE', ''),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
+
+>php artisan tinker
