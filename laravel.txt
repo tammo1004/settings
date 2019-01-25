@@ -1,46 +1,51 @@
-PHP >= 7.1.3
-OpenSSL PHP Extension
-PDO PHP Extension
-Mbstring PHP Extension
-Tokenizer PHP Extension
-XML PHP Extension
-Ctype PHP Extension
-JSON PHP Extension
-BCMath PHP Extension
+Last modified: 2019-01-18 12:48
+----
 
-#php.ini
+
+
+PHP >= 7.1.3
+Extension: BCMath, Ctype, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML
+
+---- php.ini ----
 extension=fileinfo
 extension=mbstring
 extension=openssl
 
->php --version
->php -m
 
 
 Composer: https://getcomposer.org/download/
 Composer-Setup.exe
 
+C:\Users\pc\AppData\Roaming\Composer>composer update
 >composer --version
 Composer version 1.8.0 2018-12-03 10:31:16
 
+>php --version
+>php -m
 
-Type1:
->cd Apache24
->composer update
+
+
+Type1)
+>cd Apache
 >composer global require laravel/installer
 >laravel --version
 Laravel Installer 2.0.1
->laravel new laravel_home
+>laravel new www
 
-Type2:
->cd Apache24>
->composer create-project --prefer-dist laravel/laravel laravel_home
+Type2)
+>cd Apache
+>composer create-project --prefer-dist laravel/laravel www
 
 
->cd laravel_home
+
+>cd www
 >php artisan --version
+Laravel Framework 5.7.21
 >php artisan serve
 Laravel development server started: <http://127.0.0.1:8000>
+
+>php artisan down
+>php artisan up
 
 
 >vi Apache24/conf/httpd.conf
@@ -49,25 +54,49 @@ Laravel development server started: <http://127.0.0.1:8000>
 DocumentRoot "${DOCROOT}/www/public"
 <Directory "${DOCROOT}/www/public">
 
+
+
 mysql> ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY '*****';
+mysql> FLUSH PRIVILEGES;
 mysql> exit
->brew services restart mysql
 
 mysql> CREATE DATABASE test;
 mysql> use test;
-mysql> FLUSH PRIVILEGES;
 mysql> CREATE TABLE messenger (
 idx INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,	
 title VARCHAR(255),
 in_date DATETIME DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-mysql> INSERT INTO messenger (title) VALUES('Hello Laravel!!!');
+);
+mysql> desc messenger;
++---------+------------------+------+-----+-------------------+-------------------+
+| Field   | Type             | Null | Key | Default           | Extra             |
++---------+------------------+------+-----+-------------------+-------------------+
+| idx     | int(11) unsigned | NO   | PRI | NULL              | auto_increment    |
+| title   | varchar(255)     | YES  |     | NULL              |                   |
+| in_date | datetime         | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++---------+------------------+------+-----+-------------------+-------------------+
+mysql> INSERT INTO messenger (title) VALUES('Hello, Mysql + Larabel!!!');
 mysql> exit
 
 
-# config/database.php
-            'database' => env('DB_DATABASE', ''),
-            'username' => env('DB_USERNAME', ''),
-            'password' => env('DB_PASSWORD', ''),
+---- .env ----
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=test
+DB_USERNAME=root
+DB_PASSWORD=secret
+
+
 
 >php artisan tinker
+Psy Shell v0.9.9 (PHP 7.3.1 — cli) by Justin Hileman
+>>> DB::select('select * from messenger');
+=> [
+     {#2909
+       +"idx": 1,
+       +"title": "Hello, Mysql + Larabel!!!",
+       +"in_date": "2019-01-17 22:15:11",
+     },
+   ]
+>>>
