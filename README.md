@@ -1,5 +1,7 @@
 ## WSL 2(Windows Subsystem for Linux 2)
 
++ [1. PowerShell(관리자)](### 1. PowerShell(관리자))
+
 ### 1. PowerShell(관리자)
 ```
 $ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
