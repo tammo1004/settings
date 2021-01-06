@@ -124,9 +124,9 @@ $ source .venv/bin/activate
 (.venv) $ deactivate
 ```
 
-#### VS Code에서 연동
+##### VS Code에서 연동
 Crl + Shift + P... Python: Select Interpreter… Python 3.8.5 64-bit
 
-#### VS Code에서 Python 테스트
+##### VS Code에서 Python 테스트
 Extension: Python (ms-python.python)
 print("Hello World") → Ctrl + F5
