@@ -12,6 +12,7 @@
 + [git](#git)
 + [VS Code](#VS-Code)
 + [Windows Terminal: Microsoft 스토어](#Windows-Terminal(Microsoft-스토어))
++ [Python](#Python)
 
 ### PowerShell(관리자)
 
@@ -101,3 +102,31 @@ WSL에서… $ code .
             }
         ]
 ```
+
+### Python
+
+```
+$ python3 --version
+Python 3.8.5
+$ sudo apt update && sudo apt upgrade
+$ sudo apt upgrade python3
+
+$ sudo apt install python3-pip
+$ sudo apt install python3-venv
+
+$ mkdir helloPython && cd helloPython
+/mnt/c/Users/pc/source/repos/helloPython$ python3 -m venv .venv
+$ source .venv/bin/activate
+(.venv) $ python -m pip install --upgrade pip
+(.venv) $ pip install pep8
+(.venv) $ pip install autopep8
+(.venv) $ pip install pylint
+(.venv) $ deactivate
+```
+
+#### VS Code에서 연동
+Crl + Shift + P... Python: Select Interpreter… Python 3.8.5 64-bit
+
+#### VS Code에서 Python 테스트
+Extension: Python (ms-python.python)
+print("Hello World") → Ctrl + F5
