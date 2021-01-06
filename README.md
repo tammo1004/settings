@@ -1,6 +1,17 @@
 ## WSL 2(Windows Subsystem for Linux 2)
 
 + [1. PowerShell(관리자)](#1.-PowerShell(관리자))
++ [2. 재부팅](#2.-재부팅)
++ [3. 가상 머신 플랫폼 옵션 사용: PowerShell(관리지)](#3.-가상-머신-플랫폼-옵션-사용:-PowerShell(관리지))
++ [4. 리눅스 커널 업데이트 패키지](#4.-리눅스-커널-업데이트-패키지)
++ [5. 재부팅](#5.-재부팅)
++ [6. WSL2를 기본 버전으로 설정: PowerShell](#6.-WSL2를-기본-버전으로-설정:-PowerShell)
++ [7. 리눅스 배포판 설치: Microsoft 스토어](#7.-리눅스-배포판-설치:-Microsoft-스토어)
++ [8. Ubuntu 20.04. LTS](#8.-Ubuntu-20.04.-LTS)
++ [9. 배포 버전을 WSL2로 설정](#9.-배포-버전을-WSL2로-설정)
++ [10. git](#10.=git)
++ [11. VS Code](#11.-VS-Code)
++ [12. Windows Terminal: Microsoft 스토어](#12.-Windows-Terminal:-Microsoft-스토어)
 
 ### 1. PowerShell(관리자)
 ```
@@ -53,7 +64,7 @@ git version 2.25.1
 Windows에서 설치… Extension: Remote-WSL, Remote-Containers, Docker
 WSL에서… $ code .
 
-### 12. Windows Terminal
+### 12. Windows Terminal: Microsoft 스토어
 ```
 "defaults":
         {
