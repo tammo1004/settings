@@ -13,37 +13,37 @@
 + [VS Code](#VS-Code)
 + [Windows Terminal: Microsoft 스토어](#Windows-Terminal(Microsoft-스토어))
 
-### 1. PowerShell(관리자)
+### PowerShell(관리자)
 
 ```
 $ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-### 2. 재부팅
+### 재부팅
 
-### 3. 가상 머신 플랫폼 옵션 사용(PowerShell 관리지)
+### 가상 머신 플랫폼 옵션 사용(PowerShell 관리지)
 
 ```
 $ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
-### 4. 리눅스 커널 업데이트 패키지
+### 리눅스 커널 업데이트 패키지
 
 https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
-### 5. 재부팅
+### 재부팅
 
-### 6. WSL2를 기본 버전으로 설정(PowerShell)
+### WSL2를 기본 버전으로 설정(PowerShell)
 
 ```
 $ wsl --set-default-version 2
 ```
 
-### 7. 리눅스 배포판 설치(Microsoft 스토어)
+### 리눅스 배포판 설치(Microsoft 스토어)
 
 Ubuntu 20.04. LTS
 
-### 8. Ubuntu 20.04. LTS
+### Ubuntu 20.04. LTS
 
 Enter new UNIX username: pc
 New password:
@@ -52,7 +52,7 @@ New password:
 $ sudo apt update && sudo apt upgrade
 ```
 
-### 9. 배포 버전을 WSL2로 설정
+### 배포 버전을 WSL2로 설정
 
 ```
 $ wsl --list --verbose
@@ -61,19 +61,19 @@ $ wsl --list --verbose
 $ wsl --set-default-version 2
 ```
 
-### 10. git
+### git
 
 ```
 $ git --version
 git version 2.25.1
 ```
 
-### 11. VS Code
+### VS Code
 
 Windows에서 설치… Extension: Remote-WSL, Remote-Containers, Docker
 WSL에서… $ code .
 
-### 12. Windows Terminal(Microsoft 스토어)
+### Windows Terminal(Microsoft 스토어)
 
 ```
 "defaults":
